@@ -1,0 +1,13 @@
+GraphRequest request = GraphRequest.newMeRequest(
+  accessToken,
+  new GraphRequest.GraphJSONObjectCallback() {
+    @Override
+    public void onCompleted(JSONObject object, GraphResponse response) {
+      // Insert your code here
+    }
+});
+
+Bundle parameters = new Bundle();
+parameters.putString("fields", "id,name,about,avatar_2d_profile_picture,age_range,birthday,education,email,favorite_athletes,favorite_teams,first_name,gender,hometown,id_for_avatars,install_type,inspirational_people,installed,is_guest_user,languages,last_name,link,location,meeting_for,middle_name,name_format,payment_pricepoints,political,profile_pic,relationship_status,quotes,short_name,shared_login_upgrade_required_by,significant_other,sports,supports_donate_button_in_live_video,token_for_business,video_upload_limits,website,accounts.limit(10)");
+request.setParameters(parameters);
+request.executeAsync();
